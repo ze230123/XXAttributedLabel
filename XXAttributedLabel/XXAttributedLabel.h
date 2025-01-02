@@ -47,6 +47,8 @@ NS_ASSUME_NONNULL_BEGIN
 // 选中文字变化监听
 @property (nonatomic, copy) void(^selectedChangeListenBlock)(BOOL isWhole);
 
+- (void)startSelecting;
+
 @end
 
 NS_ASSUME_NONNULL_END

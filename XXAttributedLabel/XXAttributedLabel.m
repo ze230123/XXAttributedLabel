@@ -156,16 +156,16 @@
     // 缓存触碰时间
     [self setTouchTimeInterval:[[NSDate date] timeIntervalSince1970]];
     
-    // 是否在选中状态
-    if (self.enableSelected && (!self.drawView.selecting || !self.longPressedLinkBlock))
-    {
-     
-        //计时器，手指点中0.5秒后启动选中效果
-        self.touchTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self
-                                                        selector:@selector(longPressed)
-                                                         userInfo:nil
-                                                          repeats:NO];
-    }
+//    // 是否在选中状态
+//    if (self.enableSelected && (!self.drawView.selecting || !self.longPressedLinkBlock))
+//    {
+//     
+//        //计时器，手指点中0.5秒后启动选中效果
+//        self.touchTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self
+//                                                        selector:@selector(longPressed)
+//                                                         userInfo:nil
+//                                                          repeats:NO];
+//    }
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
@@ -264,6 +264,11 @@
 
 - (BOOL)isResponseLongPressGresture {
     return YES;
+}
+
+- (void)startSelecting {
+    [self.drawView setSelecting:YES];
+    [self setNeedsDisplay];
 }
 
 @end
